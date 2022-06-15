@@ -1,5 +1,6 @@
 const bodyParser = require('body-parser')
 const morgan = require('morgan')
+const connection = require('./db/connection')
 const express = require('express')
 const crudRouter = require('./routes/crudRouter')
 const app = express()

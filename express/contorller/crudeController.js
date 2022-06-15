@@ -1,3 +1,4 @@
+const User = require('../db/models/userSchema')
 const create = async(req, res)=>{
     res.send('This is add route')
 }
