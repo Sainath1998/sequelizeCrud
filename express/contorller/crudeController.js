@@ -1,5 +1,5 @@
 const User = require('../db/models/userSchema')
-const create = async(req, res)=>{
+const create = async (req, res) => {
     const userDetails = req.body
     try {
         const newUser = await User.create(userDetails)
@@ -8,17 +8,41 @@ const create = async(req, res)=>{
         res.json(error.message)
     }
 }
-
-const update = async(req, res)=>[
-    res.send('This is update route')
-]
-
-const remove = async(req, res)=>{
-    res.send('This is delete route')
+// await User.update({ lastName: "Doe" }, {
+//     where: {
+//       lastName: null
+//     }
+// });
+const update = async (req, res) => {
+    const userDetails = req.body
+    try {
+        const updatedResult = await User.update(userDetails, {
+            where: {
+                user_id: userDetails.user_id
+            }
+        })
+        res.json(updatedResult)
+    } catch (err) {
+        res.json(err.message)
+    }
+}
+const remove = async (req, res) => {
+    const userDetails = req.body
+    try{
+        const deletedResult = await User.destroy({
+            where:{
+                user_id:userDetails.user_id
+            }
+        })
+        res.json(deletedResult)
+    }catch(err){
+        res.json(err.message)
+    } 
 }
 
-const read = async(req, res)=>{
-    res.send('This is read route')
+const read = async (req, res) => {
+   const users = await User.findAll()
+   res.json(users)
 }
 
 
