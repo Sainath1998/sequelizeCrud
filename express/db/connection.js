@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize')
-const connection = new Sequelize('sequelize-learn','root','Sainath@123',{
+const connection = new Sequelize('usersdb','root','Sainath@123',{
     dialect:'mysql'
 })
 
