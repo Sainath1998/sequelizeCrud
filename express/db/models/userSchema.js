@@ -21,8 +21,11 @@ const User = connection.define('user',{
     }
 })
 
-// User.sync({alter:true}).then((data)=>{
-//     console.log('Table and model are synced')
-// }).catch((error)=>{
-//     console.log('Error syncing in the tabke and the model')
-// })
+
+User.sync({alter:true}).then((data)=>{
+    console.log('Table and model are synced')
+}).catch((error)=>{
+    console.log('Error syncing in the tabke and the model')
+})
+
+module.exports = User

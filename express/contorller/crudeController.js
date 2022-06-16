@@ -1,6 +1,12 @@
 const User = require('../db/models/userSchema')
 const create = async(req, res)=>{
-    res.send('This is add route')
+    const userDetails = req.body
+    try {
+        const newUser = await User.create(userDetails)
+        res.json(newUser)
+    } catch (error) {
+        res.json(error.message)
+    }
 }
 
 const update = async(req, res)=>[
