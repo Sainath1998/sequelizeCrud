@@ -8,11 +8,7 @@ const create = async (req, res) => {
         res.json(error.message)
     }
 }
-// await User.update({ lastName: "Doe" }, {
-//     where: {
-//       lastName: null
-//     }
-// });
+
 const update = async (req, res) => {
     const userDetails = req.body
     try {
